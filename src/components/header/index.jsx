@@ -18,7 +18,7 @@ const Header = () => {
                         <span>خانه</span>
                     </div>
 
-                    <div className="">
+                    <div>
                         <span>ایران آینده را با هم می سازیم</span>
                     </div>
                 </div>

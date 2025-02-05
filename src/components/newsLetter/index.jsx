@@ -1,25 +1,43 @@
+"use client";
 import Instagram from "@/icons/instagram";
 import "./newsletterStyle.css";
 import ArrowDown from "@/icons/arrowDown";
+import { useState } from "react";
 
 const NewsLetter = () => {
+    const [newsletterr, setNewsletterr] = useState("");
+
+    const formSubmiter = (event) => {
+        event.preventDefault();
+
+        console.log("NewsLetter: ", newsletterr);
+
+    }
+
     return (
         <div className="w-full  flex flex-col items-center">
             <div className="w-[95%] lg:w-[648px] flex flex-col justify-between items-center p-4">
                 <h1 className="text-white text-[24px] lg:text-5xl font-normal mb-6 lg:mb-12">فصلی تازه در مسیر توسعه</h1>
 
                 <div className="w-full bg-[#0000002B] backdrop-blur-md px-6 py-8 rounded-[10px]">
-                    <span className="text-white font-normal leading-8 mb-4 lg:mb-5 block">از زمان رونمایی باخبر شوید!</span>
-                    <div className="w-full h-9 lg:h-12 mb-12 lg:mb-14">
-                        <input type="text" className="w-full h-full rounded px-4" />
-                    </div>
+                    <form onSubmit={formSubmiter}>
+                        <span className="text-white font-normal leading-8 mb-4 lg:mb-5 block">از زمان رونمایی باخبر شوید!</span>
+                        <div className="w-full h-9 lg:h-12 mb-12 lg:mb-14">
+                            <input
+                                type="text"
+                                className="w-full h-full rounded px-4"
+                                value={newsletterr}
+                                onChange={(event) => setNewsletterr(event.target.value)}
+                            />
+                        </div>
 
-                    <div className="flex items-center gap-x-3 mb-6">
-                        <input type="checkbox" className="newsletter-checkbox" />
-                        <span className="text-white font-normal text-base">بله، من را در خبرنامه مشترک کنید</span>
-                    </div>
+                        <div className="flex items-center gap-x-3 mb-6">
+                            <input type="checkbox" className="newsletter-checkbox" />
+                            <span className="text-white font-normal text-base">بله، من را در خبرنامه مشترک کنید</span>
+                        </div>
 
-                    <button className="w-full h-9 lg:h-12 bg-[#0E272D] rounded text-white font-normal text-base">همین حالا عضو شوید</button>
+                        <button type="submit" className="w-full h-9 lg:h-12 bg-[#0E272D] rounded text-white font-normal text-base">همین حالا عضو شوید</button>
+                    </form>
                 </div>
 
                 <div className="w-8 h-8 mx-auto bg-[#0E272D] rounded-full mt-3 mb-6 lg:mt-5 lg:mb-[49px] text-white flex justify-center items-center cursor-pointer"><div className="w-5 h-5"><ArrowDown /></div></div>
@@ -45,7 +63,7 @@ const NewsLetter = () => {
                     <div className="w-10 h-10 mx-auto mt-4"><Instagram /></div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
