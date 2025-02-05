@@ -30,7 +30,7 @@ body {
   padding: 0;
   direction: rtl;
   overflow-x: hidden;
-  background: url('/images/background-desktop.jpg');
+  background: -webkit-linear-gradient(left, #00000033, #00000033), url('/images/background-desktop.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
