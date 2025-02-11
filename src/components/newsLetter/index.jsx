@@ -4,6 +4,7 @@ import "./newsletterStyle.css";
 import ArrowDown from "@/icons/arrowDown";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const NewsLetter = () => {
     const [newsletterr, setNewsletterr] = useState("");
@@ -62,7 +63,9 @@ const NewsLetter = () => {
                         <address className="text-center">{t('newsLetter-email')}: info@emkan.world</address>
                         <address className="text-center">{t('newsLetter-phone')}: ۰۹۱۲۲۴۹۸۴۸۸- ۰۲۱۲۲۵۸۰۶۹۵ </address>
                     </div>
-                    <div className="w-10 h-10 mx-auto mt-4"><Instagram /></div>
+                    <div className="w-10 h-10 mx-auto mt-4">
+                        <Link href={"https://www.instagram.com/emkan.world"} target="_blank" className="w-10 h-10"><Instagram /></Link>
+                    </div>
                 </div>
             </div>
         </div >
