@@ -20,7 +20,9 @@ export default async function RootLayout({ children, params: { locale } }) {
   // side is the easiest way to get started
   const messages = await getMessages();
   return (
-    <html lang={locale}>
+    <html lang={locale}
+      className={locale === "en" ? "ltr" : "rtl"}
+    >
       <body>
         <NextIntlClientProvider messages={messages}>
           <Header />
