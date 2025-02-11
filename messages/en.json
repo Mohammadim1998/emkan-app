@@ -1,0 +1,19 @@
+{
+    "Header": {
+        "header-menu-home": "Home",
+        "header-menu-slogan": "Together,We shape the future of Iran"
+    },
+    "NewsLetter": {
+        "newsLetter-slogan": "A New Chapter in Progress",
+        "newsLetter-unveiling": "Stay Updated on Our Launch!",
+        "newsLetter-subscribe-news": "Yes,subscribe me to your newsletter",
+        "newsLetter-subscribe": "Subscribe Now",
+        "newsLetter-about": "About",
+        "newsLetter-about-description": "At Emkan Development Experience Group, we are dedicated to driving sustainable growth for the future of Iran. Focused on developing key economic regions and attracting strategic investments, we are on the verge of unveiling an innovative and transformative platform.",
+        "newsLetter-adress": "Adress",
+        "newsLetter-address-description1": "Head Office: Tehran, Pasdaran St., Ekhtiyariyeh Jonubi, Homehr Building, 2nd Floor, Unit 4, Postal Code: 1946783747",
+        "newsLetter-address-description2": "Regional Office: Chabahar Free Zone, Business Center Complex, 3rd Floor, Unit 308, Postal Code: 9971764398",
+        "newsLetter-email": "Email",
+        "newsLetter-phone": "Phone"
+    }
+}

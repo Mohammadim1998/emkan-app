@@ -1,4 +1,8 @@
+import { useTranslations } from "next-intl";
+
 const Header = () => {
+const t = useTranslations("Header");
+
     return (
         <div className="w-full mx-auto mt-8 flex justify-center">
             <nav className="w-[95%] text-white flex justify-between items-center">
@@ -15,11 +19,13 @@ const Header = () => {
                 <div className="flex flex-col lg:flex-row gap-x-[46px] items-center text-[10px] lg:text-base font-normal child:leading-6">
                     <div className="flex items-center gap-x-[20px] lg:gap-x-[46px]">
                         <div><span>FA</span><span className="mx-1">|</span><span>EN</span></div>
-                        <span>خانه</span>
+                        {/* <span>خانه</span> */}
+                        <span>{t('header-menu-home')}</span>
                     </div>
 
                     <div>
-                        <span>ایران آینده را با هم می سازیم</span>
+                        {/* <span>ایران آینده را با هم می سازیم</span> */}
+                        <span>{t('header-menu-slogan')}</span>
                     </div>
                 </div>
             </nav>
