@@ -2,9 +2,10 @@
 import Instagram from "@/icons/instagram";
 import "./newsletterStyle.css";
 import ArrowDown from "@/icons/arrowDown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import Header from "../header";
 
 const NewsLetter = () => {
     const [newsletterr, setNewsletterr] = useState("");
@@ -14,12 +15,35 @@ const NewsLetter = () => {
     }
 
     const t = useTranslations("NewsLetter");
-
+    useEffect(() => {
+        const images = [
+          "/images/desktop-img-1.png",
+          "/images/desktop-img-2.png",
+          "/images/desktop-img-3.png",
+          "/images/desktop-img-4.png"
+        ];
+    
+        let counter = 0;    
+    
+        const changeBackground = () => {
+          // تغییر پس‌زمینه با استفاده از CSS
+          document.body.style.backgroundImage = `url(${images[counter]})`;
+    
+          // برو به تصویر بعدی، اگر به انتها رسید به اول برمی‌گرده
+          counter = (counter + 1) % images.length;
+        };
+    
+        // تغییر پس‌زمینه هر 2 ثانیه یکبار
+        const intervalId = setInterval(changeBackground, 10000);
+    
+        // اینتروال را وقتی که کامپوننت حذف شد پاک کنیم
+        return () => clearInterval(intervalId);
+      }, []);
 
     return (
-        <div className="w-full  flex flex-col items-center">
-            <div className="w-[95%] lg:w-[648px] flex flex-col justify-between items-center p-4">
-                {/* <h1 className="text-white text-[24px] lg:text-5xl font-normal mb-6 lg:mb-12">فصلی تازه در مسیر توسعه</h1> */}
+        <div className="w-full flex flex-col items-center">
+            <Header />
+            <div className="w-[95%] lg:w-[648px] flex flex-col justify-between items-center mt-16">
                 <h1 className="text-white text-[24px] lg:text-5xl font-normal mb-6 lg:mb-12">{t('newsLetter-slogan')}</h1>
 
                 <div className="w-full bg-[#0000002B] backdrop-blur-md px-6 py-8 rounded-[10px]">
