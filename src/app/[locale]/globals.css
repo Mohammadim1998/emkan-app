@@ -13,11 +13,35 @@
 }
 
 @font-face {
-  font-family: "BYekan";
-  src: url('/font/BYekan.eot') format('eot'),
-    url('/font/BYekan.ttf') format('ttf'),
-    url('/font/BYekan.woff') format('woff'),
-    url('/font/BYekan.woff2') format('woff2');
+  font-family: "Gilroy";
+  src: url('/font/Gilroy/Gilroy-Medium.eot') format('eot'),
+    url('/font/Gilroy/Gilroy-Medium.ttf') format('ttf'),
+    url('/font/Gilroy/Gilroy-Medium.woff') format('woff'),
+    url('/font/Gilroy/Gilroy-Medium.woff2') format('woff2');
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Peyda";
+  src: url('/font/Peyda/Peyda-Medium.eot') format('eot'),
+    url('/font/Peyda/Peyda-Medium.ttf') format('ttf'),
+    url('/font/Peyda/Peyda-Medium.woff') format('woff'),
+    url('/font/Peyda/Peyda-Medium.woff2') format('woff2');
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YekanBakh";
+  src: url('/font/YekanBakh/YekanBakh-Regular.eot') format('eot'),
+    url('/font/YekanBakh/YekanBakh-Regular.ttf') format('ttf'),
+    url('/font/YekanBakh/YekanBakh-Regular.woff') format('woff'),
+    url('/font/YekanBakh/YekanBakh-Regular.woff2') format('woff2');
 
   font-weight: normal;
   font-style: normal;
@@ -35,7 +59,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: whitesmoke;
-  font-family: "BYekan";
+  font-family: YekanBakh !important;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
