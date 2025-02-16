@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Header from "../header";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const NewsLetter = () => {
     const [email, setEmail] = useState("");
@@ -14,20 +15,27 @@ const NewsLetter = () => {
 
     const formSubmiter = (event) => {
         event.preventDefault();
-        const data = { email };
 
         try {
-            const url = 'https://api.emkan.world/api/Services';
-            axios.post(url, data)
-                .then((res) => console.log(res))
-                .catch((err) => console.log(err))
+            axios.post(`https://api.emkan.world/api/Services?Email=${email}`)
+                .then((res) => {
+                    if (res.status == 200) {
+                        Swal.fire({
+                            position: "top-center",
+                            icon: "success",
+                            title: t('newsLetter-register'),
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                    }
+                })
         } catch (error) {
             console.log(error);
         }
     }
 
-    //change background images
     const t = useTranslations("NewsLetter");
+    //change background images
     useEffect(() => {
         const images = [
             "/images/desktop-img-1.png",
@@ -37,17 +45,16 @@ const NewsLetter = () => {
         ];
 
         let counter = 0;
-
         const changeBackground = () => {
             // تغییر پس‌زمینه با استفاده از CSS
             document.body.style.backgroundImage = `url(${images[counter]})`;
-
+            // <div data-aos="fade-up"></div>
             // برو به تصویر بعدی، اگر به انتها رسید به اول برمی‌گرده
             counter = (counter + 1) % images.length;
         };
 
         // تغییر پس‌زمینه هر 2 ثانیه یکبار
-        const intervalId = setInterval(changeBackground, 10000);
+        const intervalId = setInterval(changeBackground, 2000);
 
         // اینتروال را وقتی که کامپوننت حذف شد پاک کنیم
         return () => clearInterval(intervalId);
