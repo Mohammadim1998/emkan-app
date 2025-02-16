@@ -6,39 +6,55 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Header from "../header";
+import axios from "axios";
 
 const NewsLetter = () => {
-    const [newsletterr, setNewsletterr] = useState("");
+    const [email, setEmail] = useState("");
+    const [activeForm, setActiveForm] = useState(true);
 
     const formSubmiter = (event) => {
         event.preventDefault();
+        const data = { email };
+
+        try {
+            const url = 'https://api.emkan.world/api/Services';
+            axios.post(url, data)
+                .then((res) => console.log(res))
+                .catch((err) => console.log(err))
+        } catch (error) {
+            console.log(error);
+        }
     }
 
+    //change background images
     const t = useTranslations("NewsLetter");
     useEffect(() => {
         const images = [
-          "/images/desktop-img-1.png",
-          "/images/desktop-img-2.png",
-          "/images/desktop-img-3.png",
-          "/images/desktop-img-4.png"
+            "/images/desktop-img-1.png",
+            "/images/desktop-img-2.png",
+            "/images/desktop-img-3.png",
+            "/images/desktop-img-4.png"
         ];
-    
-        let counter = 0;    
-    
+
+        let counter = 0;
+
         const changeBackground = () => {
-          // تغییر پس‌زمینه با استفاده از CSS
-          document.body.style.backgroundImage = `url(${images[counter]})`;
-    
-          // برو به تصویر بعدی، اگر به انتها رسید به اول برمی‌گرده
-          counter = (counter + 1) % images.length;
+            // تغییر پس‌زمینه با استفاده از CSS
+            document.body.style.backgroundImage = `url(${images[counter]})`;
+
+            // برو به تصویر بعدی، اگر به انتها رسید به اول برمی‌گرده
+            counter = (counter + 1) % images.length;
         };
-    
+
         // تغییر پس‌زمینه هر 2 ثانیه یکبار
         const intervalId = setInterval(changeBackground, 10000);
-    
+
         // اینتروال را وقتی که کامپوننت حذف شد پاک کنیم
         return () => clearInterval(intervalId);
-      }, []);
+    }, []);
+    //end change background images
+
+    const handeActiveChecked = () => { setActiveForm(!activeForm) };
 
     return (
         <div className="w-full flex flex-col items-center">
@@ -53,17 +69,17 @@ const NewsLetter = () => {
                             <input
                                 type="text"
                                 className="w-full h-full rounded px-4"
-                                value={newsletterr}
-                                onChange={(event) => setNewsletterr(event.target.value)}
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
                             />
                         </div>
 
                         <div className="flex items-center gap-x-3 mb-6">
-                            <input type="checkbox" className="newsletter-checkbox" />
+                            <input type="checkbox" onChange={handeActiveChecked} className="newsletter-checkbox" />
                             <span className="text-white font-normal text-base">{t('newsLetter-subscribe-news')}</span>
                         </div>
 
-                        <button type="submit" className="w-full h-9 lg:h-12 bg-[#0E272D] rounded text-white font-normal text-base">{t('newsLetter-subscribe')}</button>
+                        <button type="submit" disabled={activeForm} className={`${activeForm ? "opacity-50" : "opacity-100"} w-full h-9 lg:h-12 bg-[#0E272D] cursor-pointer rounded text-white font-normal text-base`}>{t('newsLetter-subscribe')}</button>
                     </form>
                 </div>
 
