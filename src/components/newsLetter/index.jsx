@@ -29,8 +29,17 @@ const NewsLetter = () => {
                         });
                     }
                 })
-        } catch (error) {
-            console.log(error);
+                .catch((e) => {
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "error",
+                        title: e.response.data,
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+                })
+        } catch (e) {
+            console.log(e);
         }
     }
 
