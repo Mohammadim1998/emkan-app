@@ -38,23 +38,22 @@ const NewsLetter = () => {
     //change background images
     useEffect(() => {
         const images = [
-            "/images/desktop-img-1.png",
             "/images/desktop-img-2.png",
             "/images/desktop-img-3.png",
-            "/images/desktop-img-4.png"
+            "/images/desktop-img-4.png",
+            "/images/desktop-img-1.png"
         ];
 
         let counter = 0;
         const changeBackground = () => {
             // تغییر پس‌زمینه با استفاده از CSS
-            document.body.style.backgroundImage = `url(${images[counter]})`;
-            // <div data-aos="fade-up"></div>
+            document.body.style.background = `-webkit-linear-gradient(left, #00000066, #00000066),url(${images[counter]}) no-repeat center center/cover`;
             // برو به تصویر بعدی، اگر به انتها رسید به اول برمی‌گرده
             counter = (counter + 1) % images.length;
         };
 
-        // تغییر پس‌زمینه هر 2 ثانیه یکبار
-        const intervalId = setInterval(changeBackground, 2000);
+        // تغییر پس‌زمینه هر 10 ثانیه یکبار
+        const intervalId = setInterval(changeBackground, 10000);
 
         // اینتروال را وقتی که کامپوننت حذف شد پاک کنیم
         return () => clearInterval(intervalId);
@@ -95,18 +94,18 @@ const NewsLetter = () => {
             {/******************* ABOUT ME SECTION ********************/}
             <div className="w-full bg-[#171010C4] flex justify-center text-white">
                 <div className="w-[75%] h-full my-6">
-                    <div className="flex flex-col justify-center items-center mb-10">
+                    <div className="flex flex-col justify-center items-center mb-10 child:not-italic">
                         <span className="font-medium text-2xl leading-10 ">{t('newsLetter-about')}</span>
                         <p className="font-normal text-sm leading-6 text-center">{t('newsLetter-about-description')}</p>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center mb-6">
+                    <div className="flex flex-col justify-center items-center mb-6 child:not-italic">
                         <span className="font-medium text-2xl leading-10">{t('newsLetter-adress')}</span>
                         <address className="text-center">{t('newsLetter-address-description1')}</address>
                         <address className="text-center">{t('newsLetter-address-description2')}</address>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center">
+                    <div className="flex flex-col justify-center items-center child:not-italic">
                         <address className="text-center">{t('newsLetter-email')}: info@emkan.world</address>
                         <address className="text-center">{t('newsLetter-phone')}: ۰۹۱۲۲۴۹۸۴۸۸- ۰۲۱۲۲۵۸۰۶۹۵ </address>
                     </div>

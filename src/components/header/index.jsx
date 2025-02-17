@@ -14,7 +14,7 @@ const Header = () => {
                     <div className="flex flex-col">
                         <span className="text-base lg:text-2xl font-extrabold">گروه تجربه توسعه امکان</span>
                         <div className="w-full h-[0.25px] bg-[#ffffff]"></div>
-                        <span className="text-[8px] lg:text-xs">Emkan Developmenet Experience Group</span>
+                        <span className="text-[10px] lg:text-sm">Emkan Developmenet Experience Group</span>
                     </div>
                 </div>
 

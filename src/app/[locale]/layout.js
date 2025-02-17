@@ -3,6 +3,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import "./globals.css";
+// import AOSInit from '@/utils/aos';
 
 export const metadata = {
   title: "گروه تجربه و توسعه امکان",
@@ -24,7 +25,7 @@ export default async function RootLayout({ children, params: { locale } }) {
     >
       <body>
         <NextIntlClientProvider messages={messages}>
-          {/* <Header /> */}
+          {/* <AOSInit /> */}
           {children}
         </NextIntlClientProvider>
       </body>
